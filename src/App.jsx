@@ -13,7 +13,7 @@ export default function App() {
     
     React.useEffect(() => {
         localStorage.setItem("notes", JSON.stringify(notes))
-    },[])
+    },[notes])
 
     
     function createNewNote() {
