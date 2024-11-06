@@ -5,6 +5,12 @@ import { data } from "/src/data.js"
 import Split from "react-split"
 import {nanoid} from "nanoid"
 
+    /**
+     * Challenge: When the user edits a note, reposition
+     * it in the list of notes to the top of the list
+     */
+
+
 export default function App() {
     const [notes, setNotes] = React.useState(() =>  JSON.parse(localStorage.getItem("notes")) || [])
     const [currentNoteId, setCurrentNoteId] = React.useState(
@@ -31,6 +37,12 @@ export default function App() {
                 ? { ...oldNote, body: text }
                 : oldNote
         }))
+
+        // setNotes(oldNotes => oldNotes.map(oldNote => {
+        //     return oldNote.id === currentNoteId
+        //         ? { ...oldNote, body: text }
+        //         : oldNote
+        // }))
     }
     
     function findCurrentNote() {
@@ -38,7 +50,6 @@ export default function App() {
             return note.id === currentNoteId
         }) || notes[0]
     }
-    
     return (
         <main>
         {
@@ -77,5 +88,6 @@ export default function App() {
             
         }
         </main>
+        
     )
 }
